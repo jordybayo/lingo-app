@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import '../../screens/choose_lang.dart';
 import '../../screens/choose_level.dart';
 import '../../screens/choose_spec.dart';
-import '../../screens/onboarding.dart';
 import '../../services/firebase_auth_methods.dart';
 
 class CustomDrawer extends StatefulWidget {

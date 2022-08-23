@@ -2,18 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:lingo/src/screens/profile.dart';
-import 'package:lingo/src/screens/sign_up.dart';
-import 'package:lingo/src/screens/splash.dart';
 import 'package:lingo/src/shared/widget/drawer.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import 'board.dart';
-import 'choose_lang.dart';
-import 'choose_level.dart';
-import 'choose_spec.dart';
 import 'home.dart';
-import 'login.dart';
-import 'onboarding.dart';
 
 class MyAppPages extends StatefulWidget {
   const MyAppPages({Key? key}) : super(key: key);
@@ -28,7 +21,7 @@ class _MyAppPagesState extends State<MyAppPages> {
   static final List<Widget> _pages = <Widget>[
     const HomeScreen(),
     const BoardScreen(),
-    ProfileScreen()
+    const ProfileScreen()
   ];
 
   @override

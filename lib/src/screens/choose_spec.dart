@@ -28,7 +28,7 @@ class _ChooseSpecialisationScreenState extends State<ChooseSpecialisationScreen>
                   value: dropDownValue,
                   elevation: 16,
                   onChanged: (String? newValue) {
-                    print(newValue);
+                    debugPrint(newValue);
                     setState(() {
                       dropDownValue = newValue!;
                     });

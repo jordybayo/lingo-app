@@ -13,18 +13,20 @@ import '../models/user.dart';
 
 // This class handles the Page to dispaly the user's info on the "Edit Profile" Screen
 class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({Key? key}) : super(key: key);
+
   @override
-  _ProfileScreenState createState() => _ProfileScreenState();
+  ProfileScreenState createState() => ProfileScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     final user = UserData.myUser;
 
     return Scaffold(
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 30),
           children: [
             AppBar(
               backgroundColor: Colors.transparent,
@@ -136,7 +138,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 Expanded(
                     child: TextButton(
                         onPressed: () {
-                          navigateSecondPage(EditDescriptionFormPage());
+                          navigateSecondPage(const EditDescriptionFormPage());
                         },
                         child: Padding(
                             padding: const EdgeInsets.fromLTRB(0, 10, 10, 10),

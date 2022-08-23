@@ -59,7 +59,7 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final _controller = PageController();
   int _currentPage = 0;
-  List colors = [Color(0xff77aaff), Color(0xff99ccff), Color(0xffbbeeff)];
+  List colors = [const Color(0xff77aaff), const Color(0xff99ccff), const Color(0xffbbeeff)];
 
   AnimatedContainer _buildDots({int? index}) {
     return AnimatedContainer(
@@ -82,8 +82,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     SizeConfig().init(context);
     double width = SizeConfig.screenW!;
     double height = SizeConfig.screenH!;
-    double blockH = SizeConfig.blockH!;
-    double blockV = SizeConfig.blockV!;
+    // double blockH = SizeConfig.blockH!;
+    // double blockV = SizeConfig.blockV!;
 
     return Scaffold(
       backgroundColor: colors[_currentPage],

@@ -12,10 +12,10 @@ class EditImagePage extends StatefulWidget {
   const EditImagePage({Key? key}) : super(key: key);
 
   @override
-  _EditImagePageState createState() => _EditImagePageState();
+  EditImagePageState createState() => EditImagePageState();
 }
 
-class _EditImagePageState extends State<EditImagePage> {
+class EditImagePageState extends State<EditImagePage> {
   var user = UserData.myUser;
 
   @override

@@ -30,7 +30,7 @@ class _ChooseLanguageScreenState extends State<ChooseLanguageScreen> {
                   value: dropdownValue,
                   elevation: 16,
                   onChanged: (String? newValue) {
-                    print(newValue);
+                    debugPrint(newValue);
                     setState(() {
                       dropdownValue = newValue!;
                     });

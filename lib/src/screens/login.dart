@@ -3,8 +3,6 @@ import 'package:lingo/src/screens/sign_up.dart';
 import 'package:provider/provider.dart';
 
 import '../services/firebase_auth_methods.dart';
-import '../shared/utils/basic_utils.dart';
-import '../shared/widget/show_snackbar.dart';
 
 enum RememberQ { yes, no }
 
