@@ -1,14 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lingo/src/screens/board.dart';
-import 'package:lingo/src/screens/choose_lang.dart';
-import 'package:lingo/src/screens/choose_level.dart';
-import 'package:lingo/src/screens/choose_spec.dart';
-import 'package:lingo/src/screens/login.dart';
-import 'package:lingo/src/screens/onboarding.dart';
-import 'package:lingo/src/screens/profile.dart';
-import 'package:lingo/src/screens/sign_up.dart';
-import 'package:lingo/src/screens/splash.dart';
-import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+
 import 'package:get/get.dart';
 
 import '../shared/constants/images.dart';
@@ -17,14 +8,11 @@ import '../shared/constants/stylings.dart';
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
   const HomeScreen({Key? key}) : super(key: key);
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,36 +25,41 @@ class _HomeScreenState extends State<HomeScreen> {
                 preferredSize: const Size.fromHeight(120.0),
                 child: Container(
                   padding: EdgeInsets.only(
-                      top: MediaQuery.of(context).viewPadding.top, left: 30, right: 30),
+                      top: MediaQuery.of(context).viewPadding.top,
+                      left: 30,
+                      right: 30),
                   height: 120,
                   decoration: const BoxDecoration(
                     color: AppTheme.white,
                   ),
-                  child:
-                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                    Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Welcome!',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headline1!
-                                .copyWith(color: Colors.black.withOpacity(.7)),
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Welcome!',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline1!
+                                    .copyWith(
+                                        color: Colors.black.withOpacity(.7)),
+                              ),
+                              Text(
+                                'Good Morning',
+                                style: Theme.of(context).textTheme.headline4,
+                              ),
+                            ]),
+                        InkWell(
+                          onTap: () {},
+                          child: CircleAvatar(
+                            backgroundImage:
+                                AssetImage(PlaceholderImages.avatar),
                           ),
-                          Text(
-                            'Good Morning',
-                            style: Theme.of(context).textTheme.headline4,
-                          ),
-                        ]),
-                    InkWell(
-                      onTap: () {},
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage(PlaceholderImages.avatar),
-                      ),
-                    ),
-                  ]),
+                        ),
+                      ]),
                 ),
               ),
               Container(
@@ -85,7 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.blue.withOpacity(0.5),
                         spreadRadius: 2,
                         blurRadius: 7,
-                        offset: const Offset(0, 3), // changes position of shadow
+                        offset:
+                            const Offset(0, 3), // changes position of shadow
                       ),
                     ],
                   ),
@@ -96,7 +90,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: Get.size.width,
                         height: Get.size.height / 4,
                         decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(Radius.circular(5)),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(5)),
                           gradient: const LinearGradient(
                             begin: Alignment.topRight,
                             end: Alignment.bottomLeft,
@@ -113,7 +108,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: Theme.of(context)
                                   .textTheme
                                   .headline4!
-                                  .copyWith(color: AppTheme.white, fontSize: 12),
+                                  .copyWith(
+                                      color: AppTheme.white, fontSize: 12),
                             ),
                             OutlinedButton(
                               style: OutlinedButton.styleFrom(
@@ -122,7 +118,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 backgroundColor: const Color(0xff009ffd),
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 15, horizontal: 25),
-                                side: const BorderSide(color: AppTheme.white, width: 1),
+                                side: const BorderSide(
+                                    color: AppTheme.white, width: 1),
                               ),
                               onPressed: () {
                                 // Get.to(()=> QuestionsView(), binding: QuestionsBinding());
@@ -134,13 +131,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 //     () => Get.back(),
                                 //     context);
                               },
-                              child: const Text('Begin quiz'),
+                              child: const Text('Begin quizzes'),
                             ),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Text(
-                                  'Cashir Quiz',
+                                  'Lingo Quiz',
                                   textAlign: TextAlign.right,
                                   style: Theme.of(context)
                                       .textTheme
@@ -164,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   )),
               Container(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 30),
-                child: Text('Subjects',
+                child: Text('Specialisations',
                     style: Theme.of(context).textTheme.headline1),
               ),
               Container(
@@ -203,7 +200,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     '10',
@@ -211,7 +209,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         .textTheme
                                         .headline1!
                                         .copyWith(
-                                            color: AppTheme.white, fontSize: 30),
+                                            color: AppTheme.white,
+                                            fontSize: 30),
                                   ),
                                   const Icon(
                                     Icons.directions_bus,
@@ -264,7 +263,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     '10',
@@ -272,7 +272,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         .textTheme
                                         .headline1!
                                         .copyWith(
-                                            color: AppTheme.white, fontSize: 30),
+                                            color: AppTheme.white,
+                                            fontSize: 30),
                                   ),
                                   const Icon(
                                     Icons.directions_boat_filled_outlined,
@@ -331,7 +332,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     '10',
@@ -339,7 +341,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         .textTheme
                                         .headline1!
                                         .copyWith(
-                                            color: AppTheme.white, fontSize: 30),
+                                            color: AppTheme.white,
+                                            fontSize: 30),
                                   ),
                                   const Icon(
                                     Icons.directions_bike,
@@ -392,7 +395,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     '10',
@@ -400,7 +404,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         .textTheme
                                         .headline1!
                                         .copyWith(
-                                            color: AppTheme.white, fontSize: 30),
+                                            color: AppTheme.white,
+                                            fontSize: 30),
                                   ),
                                   const Icon(
                                     Icons.directions_subway,
