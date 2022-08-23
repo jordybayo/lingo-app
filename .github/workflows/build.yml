@@ -39,8 +39,10 @@ jobs:
       - run: flutter clean
       - run: flutter build apk --debug --split-per-abi
       - run: |
-          # flutter build ios --no-codesign
-          flutter build ios --release --no-codesign
+          arch -x86_64 pod install --repo-update
+          arch -x86_64 pod update
+          pod update
+          flutter build ios --no-codesign
           cd build/ios/iphoneos
           mkdir Payload
           cd Payload
