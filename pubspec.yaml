@@ -48,8 +48,6 @@ flutter:
     - assets/images/image2.png
     - assets/images/image3.png
     - assets/images/
-    - assets/svg/
-    - assets/flare/
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
