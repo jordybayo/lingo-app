@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           channel: "stable"
-          architecture: x86_64
+          architecture: x64
       - uses: actions/setup-java@v1
         with:
           java-version: "12.x"
@@ -39,6 +39,7 @@ jobs:
       - run: flutter clean
       - run: flutter build apk --debug --split-per-abi
       - run: |
+          pod install
           pod update
           flutter build ios --no-codesign
           cd build/ios/iphoneos
