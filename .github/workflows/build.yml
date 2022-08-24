@@ -38,20 +38,21 @@ jobs:
       - run: flutter pub get
       - run: flutter clean
       - run: flutter build apk --debug --split-per-abi
-      - run: |
-          pod install
-          pod update
-          flutter build ios --no-codesign
-          cd build/ios/iphoneos
-          mkdir Payload
-          cd Payload
-          ln -s ../Runner.app
-          cd ..
-          zip -r app.ipa Payload
+#      - run: |
+#          pod install
+#          pod update
+#          flutter build ios --no-codesign
+#          cd build/ios/iphoneos
+#          mkdir Payload
+#          cd Payload
+#          ln -s ../Runner.app
+#          cd ..
+#          zip -r app.ipa Payload
 
       - name: Publish iOS, Android Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "build/app/outputs/apk/debug/*x86_64-debug.apk, build/ios/iphoneos/app.ipa"
+#          artifacts: "build/app/outputs/apk/debug/*x86_64-debug.apk, build/ios/iphoneos/app.ipa"
+          artifacts: "build/app/outputs/apk/debug/*x86_64-debug.apk"
           tag: v1.0.${{ github.run_number }}
           token: ${{secrets.LINGO}}
