@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:lingo/src/screens/quiz/quiz_screen.dart';
 
 import '../shared/constants/images.dart';
 import '../shared/constants/stylings.dart';
+import '../shared/utils/my_shared_prefference.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
@@ -13,6 +15,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  @override
+  void initState() {
+    MySharedPreferences.instance.setBooleanValue("first_time", false); // set shared preference to already have open the once
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -171,18 +180,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       InkWell(
-                        onTap: () {
-                          // QuizAlerts().confirm(
-                          //     'This quiz contains 10 question\n',
-                          //     'Proceed',
-                          //     'Cancel',
-                          //     () => controller.goToQuiz(),
-                          //     () => Get.back(),
-                          //     context);
-                        },
+                        onTap: () => Get.to(QuizScreen()),
                         child: Container(
                           padding: const EdgeInsets.all(15),
-                          // width: (Get.size.width / 2) - 30,
+                          width: (Get.size.width / 2) - 30,
                           height: 120,
                           decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -201,7 +202,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     '10',
@@ -209,8 +210,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                         .textTheme
                                         .headline1!
                                         .copyWith(
-                                            color: AppTheme.white,
-                                            fontSize: 30),
+                                        color: AppTheme.white,
+                                        fontSize: 30),
                                   ),
                                   const Icon(
                                     Icons.directions_bus,
@@ -220,13 +221,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ],
                               ),
                               Text(
-                                'Vehicles',
+                                'Tavel',
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline3!
                                     .copyWith(
-                                      color: AppTheme.white,
-                                    ),
+                                  color: AppTheme.white,
+                                ),
                               ),
                               Text(
                                 'Answer ten questions on boats',
@@ -235,7 +236,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     .textTheme
                                     .headline4!
                                     .copyWith(
-                                        color: AppTheme.white, fontSize: 10),
+                                    color: AppTheme.white, fontSize: 10),
                                 maxLines: 2,
                               )
                             ],
@@ -244,11 +245,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          // QuizAlerts().error('Opps...', 'Questions on boats subject are unavailable', context);
+                          // QuizAlerts().error('Opps...', 'Questions on bikes subject are unavailable', context);
                         },
                         child: Container(
                           padding: const EdgeInsets.all(15),
-                          // width: (Get.size.width / 2) - 30,
+                          width: (Get.size.width / 2) - 30,
                           height: 120,
                           decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -264,7 +265,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     '10',
@@ -272,24 +273,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                         .textTheme
                                         .headline1!
                                         .copyWith(
-                                            color: AppTheme.white,
-                                            fontSize: 30),
+                                        color: AppTheme.white,
+                                        fontSize: 30),
                                   ),
                                   const Icon(
-                                    Icons.directions_boat_filled_outlined,
+                                    Icons.emoji_nature,
                                     color: AppTheme.white,
                                     size: 40,
                                   )
                                 ],
                               ),
                               Text(
-                                'Boats',
+                                'Nature',
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline3!
                                     .copyWith(
-                                      color: AppTheme.white,
-                                    ),
+                                  color: AppTheme.white,
+                                ),
                               ),
                               Text(
                                 'Answer ten questions on boats',
@@ -298,7 +299,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     .textTheme
                                     .headline4!
                                     .copyWith(
-                                        color: AppTheme.white, fontSize: 10),
+                                    color: AppTheme.white, fontSize: 10),
                                 maxLines: 2,
                               )
                             ],
@@ -352,7 +353,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ],
                               ),
                               Text(
-                                'Bikes',
+                                'Sport',
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline3!
@@ -376,11 +377,11 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       InkWell(
                         onTap: () {
-                          // QuizAlerts().error('Opps...', 'Questions on trains subject are unavailable', context);
+                          // QuizAlerts().error('Opps...', 'Questions on bikes subject are unavailable', context);
                         },
                         child: Container(
                           padding: const EdgeInsets.all(15),
-                          // width: (Get.size.width / 2) - 30,
+                          width: (Get.size.width / 2) - 30,
                           height: 120,
                           decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -396,7 +397,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             children: [
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                                MainAxisAlignment.spaceBetween,
                                 children: [
                                   Text(
                                     '10',
@@ -404,24 +405,24 @@ class _HomeScreenState extends State<HomeScreen> {
                                         .textTheme
                                         .headline1!
                                         .copyWith(
-                                            color: AppTheme.white,
-                                            fontSize: 30),
+                                        color: AppTheme.white,
+                                        fontSize: 30),
                                   ),
                                   const Icon(
-                                    Icons.directions_subway,
+                                    Icons.computer,
                                     color: AppTheme.white,
                                     size: 40,
                                   )
                                 ],
                               ),
                               Text(
-                                'Trains',
+                                'Computer',
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline3!
                                     .copyWith(
-                                      color: AppTheme.white,
-                                    ),
+                                  color: AppTheme.white,
+                                ),
                               ),
                               Text(
                                 'Answer ten questions on boats',
@@ -430,7 +431,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     .textTheme
                                     .headline4!
                                     .copyWith(
-                                        color: AppTheme.white, fontSize: 10),
+                                    color: AppTheme.white, fontSize: 10),
                                 maxLines: 2,
                               )
                             ],

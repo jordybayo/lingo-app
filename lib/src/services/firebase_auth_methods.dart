@@ -6,6 +6,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 import '../screens/login.dart';
 import '../shared/widget/show_snackbar.dart';
+import 'firestore_methods.dart';
 
 class FirebaseAuthMethods {
   final FirebaseAuth _auth;
@@ -31,13 +32,13 @@ class FirebaseAuthMethods {
     required String email,
     required String password,
     required BuildContext context,
-  })  async {
+  }) async {
     try {
-       _auth.createUserWithEmailAndPassword(
+      _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-       sendEmailVerification(context);
+      sendEmailVerification(context);
     } on FirebaseAuthException catch (e) {
       // if you want to display your own custom error message
       if (e.code == 'weak-password') {
@@ -56,14 +57,14 @@ class FirebaseAuthMethods {
     required String email,
     required String password,
     required BuildContext context,
-  })  async {
+  }) async {
     try {
-       _auth.signInWithEmailAndPassword(
+      _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
       if (!user.emailVerified) {
-         sendEmailVerification(context);
+        sendEmailVerification(context);
       }
     } on FirebaseAuthException catch (e) {
       showSnackBar(context, e.message!); // Displaying the error message
@@ -112,7 +113,15 @@ class FirebaseAuthMethods {
           // do the following:
 
           if (userCredential.user != null) {
-            if (userCredential.additionalUserInfo!.isNewUser) {}
+            if (userCredential.additionalUserInfo!.isNewUser) {
+              FirestoreMethods.addNewUser(
+                uid: user.uid,
+                email: user.email,
+                username: user.displayName,
+                imageUrl: user.photoURL,
+                phone: user.phoneNumber,
+              );
+            }
           }
         }
       }

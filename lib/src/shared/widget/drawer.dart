@@ -28,24 +28,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: const Text('Lingo'),
           ),
           ListTile(
-            leading: const Icon(Icons.eleven_mp),
-            title: const Text('Choose Level Screen'),
-            onTap: () =>
-                Navigator.of(context).pushNamed(ChooseLevelScreen.routeName),
-          ),
-          ListTile(
-            leading: const Icon(Icons.access_time_outlined),
-            title: const Text('Choose Spec screen'),
-            onTap: () => Navigator.of(context)
-                .pushNamed(ChooseSpecialisationScreen.routeName),
-          ),
-          ListTile(
-            leading: const Icon(Icons.abc),
-            title: const Text('Choose Lang screen'),
-            onTap: () =>
-                Navigator.of(context).pushNamed(ChooseLanguageScreen.routeName),
-          ),
-          ListTile(
             leading: const Icon(Icons.backup),
             title: const Text('Backup'),
             onTap: () =>

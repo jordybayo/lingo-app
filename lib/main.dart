@@ -3,7 +3,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:get/get.dart';
 import 'package:lingo/firebase_options.dart';
+import 'package:lingo/src/services/firestore_methods.dart';
 import 'package:lingo/src/shared/utils/my_shared_prefference.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,6 +27,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   if (kIsWeb) {
     FacebookAuth.i.webInitialize(
       appId: "1129634001214960", // Replace with your app id
@@ -47,14 +50,18 @@ class MyApp extends StatelessWidget {
         Provider<FirebaseAuthMethods>(
           create: (_) => FirebaseAuthMethods(FirebaseAuth.instance),
         ),
+        Provider<FirestoreMethods>(
+          create: (_) => FirestoreMethods(),
+        ),
         StreamProvider(
           create: (context) => context.read<FirebaseAuthMethods>().authState,
           initialData: null,
         ),
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
         title: 'Lingo',
         debugShowCheckedModeBanner: false,
+        // theme: ThemeData.dark(),
         // locale: Get.deviceLocale,
         themeMode: ThemeMode.light,
         theme: AppTheme.lightTheme,
@@ -123,6 +130,12 @@ class _AuthWrapperState extends State<AuthWrapper> {
 
     if (isFirstTime!) {
       return const OnboardingScreen();
+    }
+
+    if (firebaseUser != null) {
+      if (isFirstTime!) {
+        return const ChooseLanguageScreen();
+      }
     }
 
     if (firebaseUser != null) {

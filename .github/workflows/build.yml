@@ -53,6 +53,6 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
 #          artifacts: "build/app/outputs/apk/debug/*x86_64-debug.apk, build/ios/iphoneos/app.ipa"
-          artifacts: "build/app/outputs/apk/debug/*x86_64-debug.apk"
+          artifacts: "build/app/outputs/apk/debug/*x86_64-debug.apk,"
           tag: v1.0.${{ github.run_number }}
           token: ${{secrets.LINGO}}

@@ -52,9 +52,9 @@ class EditImagePageState extends State<EditImagePage> {
                       final newImage =
                       await File(image.path).copy(imageFile.path);
                       setState(
-                              () => user = user.copy(imagePath: newImage.path));
+                              () => user = user.copy(profile_image: newImage.path));
                     },
-                    child: Image.network(user.image),
+                    child: Image.network(user.profile_image),
                   ))),
           Padding(
               padding: const EdgeInsets.only(top: 40),

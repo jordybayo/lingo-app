@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lingo/src/screens/login.dart';
+import 'package:lingo/src/services/firestore_methods.dart';
 import 'package:provider/provider.dart';
 
 import '../services/firebase_auth_methods.dart';

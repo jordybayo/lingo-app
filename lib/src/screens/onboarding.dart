@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lingo/src/screens/choose_lang.dart';
 
 import '../shared/utils/my_shared_prefference.dart';
 
@@ -152,8 +153,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           padding: const EdgeInsets.all(30),
                           child: ElevatedButton(
                             onPressed: () {
-                              MySharedPreferences.instance.setBooleanValue("first_time", false);
-                              Navigator.of(context).pushReplacementNamed('/');
+                              MySharedPreferences.instance.setBooleanValue("first_time", false); // set shared preference to already have open the once
+                              Navigator.of(context).pushReplacementNamed(ChooseLanguageScreen.routeName);
                             },
                             style: ElevatedButton.styleFrom(
                               primary: Colors.black,

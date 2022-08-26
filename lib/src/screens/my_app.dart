@@ -28,6 +28,7 @@ class _MyAppPagesState extends State<MyAppPages> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: const Text('Lingo'),
         actions: [
           IconButton(
             icon: const Icon(Icons.notifications),
