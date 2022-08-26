@@ -28,12 +28,20 @@ class EditNameFormPageState extends State<EditNameFormPage> {
   @override
   void dispose() {
     firstNameController.dispose();
+    secondNameController.dispose();
     super.dispose();
+  }
+
+  @override
+  void initState() {
+    final uid = context.read<FirebaseAuthMethods>().user.uid;
+    print('-------------> $uid');
+    super.initState();
   }
 
   void updateUserValue(String name) async{
     final uid = context.read<FirebaseAuthMethods>().user.uid;
-    print('-------------__> $uid');
+    print('-------------> $uid');
     context.read<FirestoreMethods>().updateUserInfo(name: name, uid: uid);
   }
 

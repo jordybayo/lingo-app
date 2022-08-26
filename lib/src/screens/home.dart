@@ -245,6 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       InkWell(
                         onTap: () {
+                          Get.to(QuizScreen());
                           // QuizAlerts().error('Opps...', 'Questions on bikes subject are unavailable', context);
                         },
                         child: Container(
@@ -314,6 +315,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       InkWell(
                         onTap: () {
+                          Get.to(QuizScreen());
                           // QuizAlerts().error('Opps...', 'Questions on bikes subject are unavailable', context);
                         },
                         child: Container(
@@ -377,6 +379,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       InkWell(
                         onTap: () {
+                          Get.to(QuizScreen());
                           // QuizAlerts().error('Opps...', 'Questions on bikes subject are unavailable', context);
                         },
                         child: Container(
