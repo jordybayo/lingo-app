@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../controller/question_controller.dart';
-import '../../../shared/constants/constants.dart';
+import '../../../controller/nature_question_controller.dart';
+import '../../constants/constants.dart';
 
-class ProgressBar extends StatelessWidget {
-  const ProgressBar({Key? key}) : super(key: key);
+class NatureProgressBar extends StatelessWidget {
+  const NatureProgressBar({Key? key}) : super(key: key);
 
 
   @override
@@ -18,8 +18,8 @@ class ProgressBar extends StatelessWidget {
         border: Border.all(color: const Color(0xFF3F4768), width: 3),
         borderRadius: BorderRadius.circular(50),
       ),
-      child: GetBuilder<QuestionController>(
-        init: QuestionController(),
+      child: GetBuilder<NatureQuestionController>(
+        init: NatureQuestionController(),
         builder: (controller) {
           return Stack(
             children: [

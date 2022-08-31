@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-import '../../../controller/question_controller.dart';
-import '../../../shared/constants/constants.dart';
+import '../../../controller/travel_question_controller.dart';
+import '../../constants/constants.dart';
 
-class Option extends StatelessWidget {
 
-  Option({required this.text,
+class TravelOption extends StatelessWidget {
+
+  const TravelOption({required this.text,
       required this.index,
       required this.press});
 
@@ -16,8 +17,8 @@ class Option extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<QuestionController>(
-        init: QuestionController(),
+    return GetBuilder<TravelQuestionController>(
+        init: TravelQuestionController(),
         builder: (qnController) {
           Color getTheRightColor() {
             if (qnController.isAnswered) {

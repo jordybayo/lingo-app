@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../controller/question_controller.dart';
-import '../../../shared/constants/constants.dart';
-import 'progress_bar.dart';
-import 'question_card.dart';
 
-class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+import '../../../controller/computer_question_controller.dart';
+import '../../constants/constants.dart';
+import 'computer_progress_bar.dart';
+import 'computer_question_card.dart';
+
+class ComputerBody extends StatelessWidget {
+  const ComputerBody({Key? key}) : super(key: key);
 
 
 
   @override
   Widget build(BuildContext context) {
     // So that we have acccess our controller
-    QuestionController _questionController = Get.put(QuestionController());
+    ComputerQuestionController questionController = Get.put(ComputerQuestionController());
     return Stack(
       fit: StackFit.expand,
       children: [
@@ -27,7 +28,7 @@ class Body extends StatelessWidget {
               const Padding(
                 padding:
                     EdgeInsets.symmetric(horizontal: kDefaultPadding),
-                child: ProgressBar(),
+                child: ComputerProgressBar(),
               ),
               const SizedBox(height: kDefaultPadding),
               Padding(
@@ -37,14 +38,14 @@ class Body extends StatelessWidget {
                   () => Text.rich(
                     TextSpan(
                       text:
-                          "Question ${_questionController.questionNumber.value}",
+                          "Question ${questionController.questionNumber.value}",
                       style: Theme.of(context)
                           .textTheme
                           .headline4
                           ?.copyWith(color: kSecondaryColor),
                       children: [
                         TextSpan(
-                          text: "/${_questionController.questions.length}",
+                          text: "/${questionController.questions.length}",
                           style: Theme.of(context)
                               .textTheme
                               .headline5
@@ -61,11 +62,12 @@ class Body extends StatelessWidget {
                 child: PageView.builder(
                   // Block swipe to next qn
                   physics: const NeverScrollableScrollPhysics(),
-                  controller: _questionController.pageController,
-                  onPageChanged: _questionController.updateTheQnNum,
-                  itemCount: _questionController.questions.length,
-                  itemBuilder: (context, index) => QuestionCard(
-                      question: _questionController.questions[index]),
+                  // physics: const AlwaysScrollableScrollPhysics(),
+                  controller: questionController.pageController,
+                  onPageChanged: questionController.updateTheQnNum,
+                  itemCount: questionController.questions.length,
+                  itemBuilder: (context, index) => ComputerQuestionCard(
+                      question: questionController.questions[index]),
                 ),
               ),
             ],
